@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="doC" oninput="print()"><br>
+C -> F:
+<p id="CtoF"></p>
+C -> K:
+<p id="CtoK"></p>
+</body>
+<script>
+    let Temperature = function (){
+        this.doC = '';
+        this.doCtoDoF = function (){
+            let doF = (Number(this.doC)/5*9)+32;
+            return doF;
+        };
+        this.doCtoDoK = function (){
+            let doK = Number(this.doC) + 273.15;
+            return doK;
+        };
+    }
+    
+    function print() {
+        let temperature = new Temperature();
+        temperature.doC = document.getElementById('doC').value;
+
+        document.getElementById('CtoF').innerHTML = temperature.doCtoDoF();
+        document.getElementById('CtoK').innerHTML = temperature.doCtoDoK();
+    }
+</script>
+</html>
